@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 const { URLSearchParams } = require('url');
 
+const countyName = 'Iredell';
 const countyFips = '37097';
 const url = `https://services1.arcgis.com/0MSEUqKaxRlEPj5g/ArcGIS/rest/services/ncov_cases_US/FeatureServer/0/query?where=FIPS%3D${countyFips}&outFields=*&f=geojson&token=`;
 
@@ -17,7 +18,7 @@ async function main() {
 }
 
 async function sendPushoverMessage(message) {
-  const title = 'Iredell County Coronavirus Update'
+  const title = `${countyName} County Coronavirus Update`;
   const url = 'https://api.pushover.net/1/messages.json';
   const { PUSHOVER_TOKEN: token, PUSHOVER_USER: user } = process.env;
   const params = { token, user, title, message };
