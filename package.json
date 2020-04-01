@@ -1,0 +1,14 @@
+{
+  "name": "covidication",
+  "version": "0.0.0",
+  "description": "Get notifications for COVID cases",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jason Sanford",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}
