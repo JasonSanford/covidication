@@ -21,9 +21,10 @@ async function sendPushoverMessage(message) {
   const url = 'https://api.pushover.net/1/messages.json';
   const { PUSHOVER_TOKEN: token, PUSHOVER_USER: user } = process.env;
   const params = { token, user, title, message };
-  const urlSearchParams = new URLSearchParams(params);
+  const body = new URLSearchParams(params);
+  const fetchOptions = { method: 'POST', body };
 
-  const response = await fetch(url, { method: 'POST', body: urlSearchParams });
+  const response = await fetch(url, fetchOptions);
   const json = await response.json();
 
   return json;
