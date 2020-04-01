@@ -1,0 +1,1 @@
+task: node index.js

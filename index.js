@@ -6,8 +6,8 @@ const url = 'https://services1.arcgis.com/0MSEUqKaxRlEPj5g/ArcGIS/rest/services/
 async function main() {
   const response = await fetch(url);
   const json = await response.json();
+
   const { Confirmed: confirmed, Deaths: deaths } = json.features[0].properties;
-  console.log(`Confirmed: ${confirmed}, Deaths: ${deaths}`);
   const message = `${confirmed} cases, ${deaths} deaths.`;
   const outcome = await sendPushoverMessage(message);
   console.log(outcome);
