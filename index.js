@@ -19,9 +19,10 @@ async function main() {
 
 async function sendPushoverMessage(message) {
   const title = `${countyName} County Coronavirus Update`;
+  const sound = 'classical';
   const url = 'https://api.pushover.net/1/messages.json';
   const { PUSHOVER_TOKEN: token, PUSHOVER_USER: user } = process.env;
-  const params = { token, user, title, message };
+  const params = { token, user, title, message, sound };
   const body = new URLSearchParams(params);
   const fetchOptions = { method: 'POST', body };
 
