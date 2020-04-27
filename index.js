@@ -1,33 +1,11 @@
 const fetch = require('node-fetch');
+const counties = require('./counties');
 const { URLSearchParams } = require('url');
-
-const counties = [
-  {
-    name: 'Iredell',
-    fips: 37097
-  },
-  {
-    name: 'Mecklenburg',
-    fips: 37119
-  },
-  {
-    name: 'Duplin',
-    fips: 37061
-  },
-  {
-    name: 'Gaston',
-    fips: 37071
-  },
-  {
-    name: 'Rowan',
-    fips: 37159
-  }
-];
 
 async function main() {
   const tasks = counties.map(county => {
     return new Promise(async (resolve, reject) => {
-      const { name, fips } = county;
+      const { fips } = county;
       const url = `https://services1.arcgis.com/0MSEUqKaxRlEPj5g/ArcGIS/rest/services/ncov_cases_US/FeatureServer/0/query?where=FIPS%3D${fips}&outFields=*&f=geojson&token=`;
       const response = await fetch(url);
       const json = await response.json();
