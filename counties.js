@@ -18,6 +18,10 @@ const counties = [
   {
     name: 'Rowan',
     fips: 37159
+  },
+  {
+    name: 'Horry',
+    fips: 45051
   }
 ];
 
