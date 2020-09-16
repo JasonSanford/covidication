@@ -10,6 +10,6 @@
   "author": "Jason Sanford",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   }
 }
