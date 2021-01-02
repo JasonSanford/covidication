@@ -28,4 +28,4 @@ jobs:
         with:
           node-version: '12'
       - run: npm install
-      - run: node nothing.js
+      - run: node index.js
