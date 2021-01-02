@@ -5,7 +5,7 @@ name: Runner
 # Controls when the action will run. 
 on:
   schedule:
-    - cron: "24 4 * * *"
+    - cron: '0 2 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
