@@ -29,3 +29,6 @@ jobs:
           node-version: '12'
       - run: npm install
       - run: node index.js
+        env:
+          PUSHOVER_TOKEN: ${{ secrets.PUSHOVER_TOKEN }}
+          PUSHOVER_USER: ${{ secrets.PUSHOVER_USER }}
