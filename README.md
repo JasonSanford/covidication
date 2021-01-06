@@ -1,3 +1,5 @@
+The `counties.js` file contains an array of county's names and [fips code](https://github.com/kjhealy/fips-codes/blob/master/county_fips_master.csv). You should change these to the counties you are interested in.
+
 You'll need to have some environment variables set for Pushover.
 
 ```bash
@@ -10,12 +12,7 @@ Make changes to `.env`
 source .env
 ```
 
-If deploying to heroku you'll need these same environment variables set.
-
-```bash
-heroku config:set PUSHOVER_TOKEN=abc123
-heroku config:set PUSHOVER_USER=def456
-```
+If you plan to use GitHub actions to check counts and send notifications you'll need to set valid `PUSHOVER_TOKEN` and `PUSHOVER_USER` tokens set in your repository secrets for your fork of this repo.
 
 To get county counts and get notifications run with:
 
