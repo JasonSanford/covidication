@@ -24,9 +24,13 @@ async function main() {
     .map(({ name, confirmed, deaths }) => `${name} - Confirmed: ${confirmed}, Deaths: ${deaths}`)
     .join('\n');
 
-  const outcome = await sendPushoverMessage(message);
+  console.log('---------- Pushover Message -----------')
+  console.log(message);
 
-  console.log(outcome);
+  const result = await sendPushoverMessage(message);
+
+  console.log('---------- Pushover Result -----------')
+  console.log(result);
 }
 
 async function sendPushoverMessage(message) {
