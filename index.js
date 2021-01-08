@@ -9,9 +9,9 @@ async function main() {
       const url = `https://services1.arcgis.com/0MSEUqKaxRlEPj5g/ArcGIS/rest/services/ncov_cases_US/FeatureServer/0/query?where=FIPS%3D${fips}&outFields=*&f=geojson&token=`;
       const response = await fetch(url);
       const json = await response.json();
-      const { Confirmed: confirmed, Deaths: deaths } = json.features[0].properties;
+      const { Confirmed: cases, Deaths: deaths } = json.features[0].properties;
 
-      county.confirmed = confirmed;
+      county.cases = cases;
       county.deaths = deaths;
 
       resolve(county);
@@ -21,7 +21,7 @@ async function main() {
   const results = await Promise.all(tasks);
 
   const message = results
-    .map(({ name, confirmed, deaths }) => `${name} - Confirmed: ${confirmed}, Deaths: ${deaths}`)
+    .map(({ name, cases, deaths }) => `${name} - Cases: ${cases}, Deaths: ${deaths}`)
     .join('\n');
 
   console.log('---------- Pushover Message -----------')
