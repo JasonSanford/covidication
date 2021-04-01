@@ -1,0 +1,23 @@
+name: Notifier
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denolib/setup-deno@v2
+        with:
+          deno-version: v1.x
+      - run: echo PUSHOVER_TOKEN=${{ secrets.PUSHOVER_TOKEN }} > .env
+      - run: echo PUSHOVER_USER=${{ secrets.PUSHOVER_USER }} >> .env
+      - run: deno run --allow-net --allow-read --allow-env index.ts

@@ -1,0 +1,8 @@
+{
+  "name": "covidication",
+  "version": "0.0.0",
+  "description": "Get notifications for COVID cases",
+  "main": "index.ts",
+  "author": "Jason Sanford",
+  "license": "BSD-2-Clause"
+}
